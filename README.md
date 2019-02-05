@@ -18,3 +18,6 @@ Run tests with: `yarn gui`
 
 Check allure report with: `yarn report`
 
+
+
+More info to come....
