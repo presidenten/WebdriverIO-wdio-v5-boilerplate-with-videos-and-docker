@@ -59,7 +59,7 @@ const config = {
   screenshotPath: './e2e/errorShots/',
   outputDir: './e2e/results/',
   reporters: [
-    'concise',
+    'spec',
     ['allure', {
       outputDir: './e2e/results/allure-raw/',
       disableWebdriverStepsReporting: true,
