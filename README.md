@@ -35,7 +35,7 @@ to `localhost:5901` for Chrome and `localhost:5902` for Firefox.
 Because all tests run in a docker container, your own mouse and keyboard wont hogged during the test runs when you write your tests. Yey!
 You can also keep up with new browsers and selenium drivers for chrome and firefox by keeping an eye out on Seleniums github: https://github.com/SeleniumHQ/docker-selenium
 
-`@` is resolved to src to avoid `../../../`.... in the tests.
+`@` is resolved to `src` to avoid `../../../`.... in the tests.
 
 The idea with this setup is to name local tests (testing local webserver on localhost) 
 `file.gui.js`, while e2e-tests that test external sites are named `file.e2e.js`.
