@@ -17,4 +17,4 @@ export default {
   advancedExamples: 'body #advanced_example',
   exampleList: '.list-group .list-group-item',
   getExampleButton(url) { return `.list-group-item[href*="${url}"]`; },
-}
+};

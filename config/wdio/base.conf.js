@@ -1,27 +1,48 @@
 
 require('module-alias/register');
-const videoRecorder = require('selenium-js-video-recorder');
 require('@babel/register')({
   presets: [[
     '@babel/preset-env',
-    { targets: { node: 10 } },
+    { targets: { node: 8 } },
   ]],
   babelrc: false,
 });
 
-const rec = videoRecorder.getHooks({
-  saveAllVideos: false,  // If true, also saves videos for successful test cases
-  videoSlowdownMultiplier: 5,  // Higher to get slower videos, lower for faster videos [Value 1-100]
-});
-
+const video = require('wdio-video-reporter');
 
 const config = {
+  // =============================
+  //      Reporter options
+  // =============================
+  outputDir: './_results_',
+  reporters: [
+    'spec',
+    [video, {
+      saveAllVideos: false,       // If true, also saves videos for successful test cases
+      videoSlowdownMultiplier: 3, // Higher to get slower videos, lower for faster videos [Value 1-100]
+      videoRenderTimeout: 5,      // Max seconds to wait for a video to finish rendering
+    }],
+    ['allure', {
+      outputDir: './_results_/allure-raw',
+      disableWebdriverStepsReporting: true,
+      disableWebdriverScreenshotsReporting: true,
+    }],
+  ],
+
+  // =============================
+  //      Console options
+  // =============================
+  logLevel: 'info', // trace | debug | info | warn | error | silent
+  coloredLogs: true,
+  deprecationWarnings: true,
+  
+
   // =============================
   //        Base Options
   // =============================
   baseURL: 'http://localhost:8080',
   specs: [
-    './src/test-e2e/**/*.e2e.js',
+    './src/scenarios/**/*.e2e.js',
   ],
   framework: 'jasmine',
   jasmineNodeOpts: {
@@ -45,43 +66,6 @@ const config = {
   waitforTimeout: 10000,
   connectionRetryTimeout: 90000,
   connectionRetryCount: 3,
-
-  // =============================
-  //      Console options
-  // =============================
-  logLevel: 'info',
-  coloredLogs: true,
-  deprecationWarnings: true,
-  
-  // =============================
-  //      Reporter options
-  // =============================
-  screenshotPath: './e2e/errorShots/',
-  outputDir: './e2e/results/',
-  reporters: [
-    'spec',
-    ['allure', {
-      outputDir: './e2e/results/allure-raw/',
-      disableWebdriverStepsReporting: true,
-      disableWebdriverScreenshotsReporting: true, // Must be set to true
-    }],
-  ],
-
-  // =============================
-  // Hooks bound to video recorder
-  // =============================
-  beforeTest: (test) => {
-    rec.beforeTest(browser, test, config);
-  },
-  afterCommand: (commandName, args, result, error) => {
-    rec.afterCommand(browser, commandName, args, config);
-  },
-  afterTest: (test) => {
-    rec.afterTest(browser, test, config);
-  },
-  onComplete: (exitCode, config, capabilities) => {
-    rec.onComplete(config);
-  },
 };
 
 module.exports = {

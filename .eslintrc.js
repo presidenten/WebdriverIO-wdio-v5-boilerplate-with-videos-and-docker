@@ -1,16 +1,19 @@
 module.exports = {
   root: true,
+  "env": {
+    "node": true
+  },
   parser: 'babel-eslint',
   parserOptions: {
     sourceType: 'module'
   },
-  extends: 'airbnb-base',
-  // required to lint *.vue files
-  plugins: [
-    'html'
+  extends: [
+    "eslint:recommended"
   ],
   // add your custom rules here
-  'rules': {
+  rules: {
+    'semi': 1,
+    'no-useless-escape': 0,
     'function-paren-newline': 0,
     'no-multi-spaces': 0,
     'object-curly-newline': 0,
@@ -19,23 +22,26 @@ module.exports = {
     'no-mixed-operators': 0,
     'no-unused-vars': 1,
     'no-plusplus': 0,
+    'no-console': 0,
     'prefer-template': 0,
     'import/no-extraneous-dependencies': 0,
-    // don't require .vue extension when importing
     'import/extensions': 0,
     'class-methods-use-this': 0,
-    // allow debugger during development
+    'consistent-return': 0,
+    'no-restricted-syntax': 0,
     'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0,
     'max-len': ["warn", 140, { "ignoreComments": true }]
   },
   globals:{
+    window: true,
     document: true,
-    jasmine: true,
-    jest: true,
 
     describe: true,
     fdescribe: true,
     xdescribe: true,
+
+    beforeEach: true,
+    afterEach: true,
 
     it: true,
     fit: true,
@@ -43,11 +49,8 @@ module.exports = {
 
     expect: true,
     spyOn: true,
-
-    beforeEach: true,
-    afterEach: true,
-
+    
+    $: true,
     browser: true,
-  },
-};
-
+  }
+}

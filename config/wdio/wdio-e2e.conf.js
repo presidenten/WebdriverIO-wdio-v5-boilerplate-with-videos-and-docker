@@ -1,15 +1,15 @@
 const base = require('./base.conf.js');
 
 const config = {
-
   specs: [
     './src/**/*.e2e.js'
   ],
 
-  // Level of logging verbosity: trace | debug | info | warn | error
-  logLevel: 'info',
-
   capabilities: [
+    {
+      maxInstances: 1,
+      browserName: 'firefox',
+    },
     {
       maxInstances: 1,
       browserName: 'chrome',
@@ -22,11 +22,10 @@ const config = {
     },
   ],
 
-
   // Setup the browser window
   before: (capabilities, specs) => {
     browser.setWindowPosition(0, 0);
-    browser.setWindowSize(1600, 1024);
+    browser.setWindowSize(1320, 768);
   },
 };
 

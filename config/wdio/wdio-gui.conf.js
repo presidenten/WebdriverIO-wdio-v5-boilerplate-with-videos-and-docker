@@ -1,15 +1,15 @@
 const base = require('./base.conf.js');
 
 const config = {
-
   specs: [
     './src/**/*.gui.js'
   ],
 
-  // Level of logging verbosity: trace | debug | info | warn | error
-  logLevel: 'info',
-
   capabilities: [
+    {
+      maxInstances: 1,
+      browserName: 'firefox',
+    },
     {
       maxInstances: 1,
       browserName: 'chrome',
@@ -21,7 +21,6 @@ const config = {
       }
     },
   ],
-
 
   // Setup the browser window
   before: (capabilities, specs) => {

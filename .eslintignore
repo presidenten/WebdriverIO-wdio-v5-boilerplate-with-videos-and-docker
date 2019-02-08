@@ -1,2 +1,2 @@
-config/*.js
-node_modules/**/*.js
+_results_/**/*.js
+config/**/*.js

@@ -6,46 +6,44 @@ describe('User interactions', () => {
     browser.url(config.url);
   });
   
-  it('should be able edit input', () => {
+  it ('should be able edit input (should pass)', () => {
     $(selectors.basicExamples).click();
     $(selectors.getExampleButton('basic-first-form-demo')).click();
     
-    $('body #get-input input').setValue('Presidenten');
-    $('body #get-input button').click();
+    $('#get-input input').setValue('Presidenten');
+    $('#get-input button').click();
     
-    let name = $('body #user-message #display').getText();
+    let name = $('#user-message #display').getText();
     
     expect(name).toBe('Presidenten');
   });
 
 
-  it('should be able to move slider (fails by design to show video)', () => {
+  it('should be able to move slider (fails by design to gen video)', () => {
     $(selectors.advancedExamples).click();
     $(selectors.getExampleButton('drag-drop-range')).click();
 
-    $('body #slider1 input').moveTo(10, 10);
-    browser.positionClick();
-    $('body #slider1 input').moveTo(100, 10);
-    browser.positionClick();
+    $('#slider1 input').click();
 
-    let range = $('body #slider1 #range').getText();
+    let range = $('#slider1 #range').getText();
     expect(range).toBe(30);
   });
 
 
-  it('should be able to multi-select in dropdown (fails by design to show video)', () => {
+  it('should be able to multi-select in dropdown (fails by design to gen video)', () => {
     $(selectors.basicExamples).click();
     $(selectors.getExampleButton('basic-select-dropdown')).click();
 
     const modifierKey = process.platform == 'darwin' ? 'Meta' : 'Control';
     browser.keys(modifierKey);
-    $('body #multi-select option[value="Florida"]').click();
-    $('body #multi-select option[value="Ohio"]').click();
-    $('body #multi-select option[value="Texas"]').click();
+    $('#multi-select option[value="Florida"]').click();
+    $('#multi-select option[value="Ohio"]').click();
+    $('#multi-select option[value="Texas"]').click();
 
-    $('body #printAll').click();
+    $('#printAll').click();
 
-    $('body #printAll').scrollIntoView();
+    browser.execute(() => document.querySelector('.getall-selected').scrollIntoView());
+
     const values = $('.getall-selected').getText();
 
     expect(values.includes('Florida')).toBe(true);

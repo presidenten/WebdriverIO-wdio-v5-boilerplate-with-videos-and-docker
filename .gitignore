@@ -46,4 +46,4 @@ build
 dist
 node_modules
 coverage
-e2e
+_results_
