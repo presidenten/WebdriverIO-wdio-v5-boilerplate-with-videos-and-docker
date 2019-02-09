@@ -15,15 +15,7 @@ Install docker
 - Win https://download.docker.com/win/stable/Docker%20for%20Windows%20Installer.exe
 - Linux `curl -fsSL https://get.docker.com -o get-docker.sh && sudo sh get-docker.sh && sudo usermod -aG docker $USER`
 
-Dont want docker? 
-Just install `@wdio/selenium-standalone-service` as a dependency and change
-```
-  services: undefined,
-```
-to
-```
-  services: ['selenium-standalone'],
-```
+(Dont want docker? Follow this guide: https://webdriver.io/docs/selenium-standalone-service.html)
 
 
 Install dependencies
