@@ -15,6 +15,17 @@ Install docker
 - Win https://download.docker.com/win/stable/Docker%20for%20Windows%20Installer.exe
 - Linux `curl -fsSL https://get.docker.com -o get-docker.sh && sudo sh get-docker.sh && sudo usermod -aG docker $USER`
 
+Dont want docker? 
+Just install `@wdio/selenium-standalone-service` as a dependency and change
+```
+  services: undefined,
+```
+to
+```
+  services: ['selenium-standalone'],
+```
+
+
 Install dependencies
 --------------------
 
@@ -25,6 +36,7 @@ Usage
 
 Start docker hub with docker with command:
 - `docker-compose up -d`
+(If using selenium-standalone, then skip that line)
 
 Check `http://localhost:4444/grid/console` and wait for chrome and firefox to register themselves.
 
