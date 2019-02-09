@@ -45,7 +45,7 @@
     "open": "^0.0.5",
     "rimraf": "^2.6.3",
     "simple-autoreload-server": "^0.2.7",
-    "wdio-video-reporter": "^1.1.0",
+    "wdio-video-reporter": "^1.1.1",
     "webdriverio": "^5.4.17"
   },
   "devDependencies": {}
