@@ -1,8 +1,7 @@
-
 /*
   Simulate mouse actions through javascript. Works from IE10+.
 
-  Use this lib to avoid the current gecko-driver bugs that prevents `positionClick` and 
+  Use this lib to avoid the current gecko-driver bugs that prevents `positionClick` and
   mouse operations through `performActions`.
 
   Usage
@@ -10,16 +9,16 @@
   import mouse from '@/config/mouse
 
   // Click an element
-  mouse(browser, selector, 'click'); 
+  mouse(browser, selector, 'click');
   // Click with an offset to selectors topleft position
   mouse(browser, selector, 'click', { x: 200, y: 200 });
   // Click an element with shift
-  mouse(browser, selector, 'click', { shiftKey: true }); 
+  mouse(browser, selector, 'click', { shiftKey: true });
   // Click an element with meta
-  mouse(browser, selector, 'click', { metaKey: true }); 
+  mouse(browser, selector, 'click', { metaKey: true });
   ```
 
-  The possible defaultOptions are: 
+  The possible defaultOptions are:
   {
     x: 0,
     y: 0,
@@ -38,7 +37,7 @@ export default (browser, selector, eventName, eventOptions) => {
   eventOptions = eventOptions || {};
   $(selector).waitForDisplayed();
 
-  const result = browser.execute((selector, eventName, eventOptions) => {    
+  const result = browser.execute((selector, eventName, eventOptions) => {
     // DO NOT UPDATE TO ES6!! This will execute in the browsers
     function extend(destination, source) {
       for (var property in source)
@@ -62,18 +61,15 @@ export default (browser, selector, eventName, eventOptions) => {
       cancelable: true
     }
     var element = document.querySelector(selector);
-    console.log('element', element);
-    
+
     var options = extend(defaultOptions, eventOptions || {});
     var oEvent, eventType = null;
-    
+
     var elementRect = element.getBoundingClientRect();
     options.x = options.x + elementRect.left;
     options.y = options.y + elementRect.top;
 
     var newElement = document.elementFromPoint(options.x, options.y);
-    console.log('newElement', newElement);
-
     for (var name in eventMatchers) {
       if (eventMatchers[name].test(eventName)) { eventType = name; break; }
     }
