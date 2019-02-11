@@ -40,6 +40,9 @@ module.exports = {
     fdescribe: true,
     xdescribe: true,
 
+    beforeAll: true,
+    afterAll: true,
+
     beforeEach: true,
     afterEach: true,
 
