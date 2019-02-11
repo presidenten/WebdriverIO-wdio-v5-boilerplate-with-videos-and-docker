@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint --ext .js --ignore-path .gitignore src",
+    "lintfix": "eslint --fix --ext .js --ignore-path .gitignore src",
     "pregui": "rimraf _results_/*; mkdirp _results_/allure-raw",
     "gui": "wdio config/wdio/wdio-gui.conf.js",
     "pree2e": "rimraf _results_/*; mkdirp _results_/allure-raw",
