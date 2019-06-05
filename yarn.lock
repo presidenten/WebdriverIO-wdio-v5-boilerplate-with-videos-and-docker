@@ -768,14 +768,6 @@
   resolved "https://registry.yarnpkg.com/@ffmpeg-installer/win32-x64/-/win32-x64-4.1.0.tgz#17e8699b5798d4c60e36e2d6326a8ebe5e95a2c5"
   integrity sha512-Drt5u2vzDnIONf4ZEkKtFlbvwj6rI3kxw1Ck9fpudmtgaZIHD4ucsWB2lCZBXRxJgXR+2IMSti+4rtM4C4rXgg==
 
-"@wdio/allure-reporter@^5.7.11":
-  version "5.7.11"
-  resolved "https://registry.yarnpkg.com/@wdio/allure-reporter/-/allure-reporter-5.7.11.tgz#6de15f3c159dd6e11364231530d1782b9178655d"
-  integrity sha512-+7cqTDXh9reo5rCydvRNX+V7z/rC096pdCgPy/LFasX3daFCVsFKJaIapqp5leqptqo+nQpkx6mCY2b7Cgz1AA==
-  dependencies:
-    "@wdio/reporter" "^5.7.8"
-    allure-js-commons "^1.3.2"
-
 "@wdio/allure-reporter@^5.9.3":
   version "5.9.3"
   resolved "https://registry.yarnpkg.com/@wdio/allure-reporter/-/allure-reporter-5.9.3.tgz#c62482f8af9e3301d0e9a071d51e9e52f6d6720b"
@@ -862,13 +854,6 @@
   integrity sha512-PMpBB8+6uCVgP1D4iLnINKX9fTmQqX5DSnwtiTC90NYYmU3lNcZgt5NBJFfK6tRPu6cQyU3CeG8yXrf1e+9e5A==
   dependencies:
     "@wdio/config" "^5.9.4"
-
-"@wdio/reporter@^5.7.8":
-  version "5.7.8"
-  resolved "https://registry.yarnpkg.com/@wdio/reporter/-/reporter-5.7.8.tgz#41a6efaeda7403050c15283a9b51e2bb4bad6f77"
-  integrity sha512-WufRUkEqFF3EoI6FqSUyzW2NHv7zPNha76Qybp6FSRwZ+W3PW5TAJDHhFK0vRT+iFXNAnfs/PgGAbsFX454o6g==
-  dependencies:
-    fs-extra "^7.0.1"
 
 "@wdio/reporter@^5.9.3":
   version "5.9.3"
@@ -2367,15 +2352,6 @@ fs-extra@^6.0.1:
   version "6.0.1"
   resolved "https://registry.yarnpkg.com/fs-extra/-/fs-extra-6.0.1.tgz#8abc128f7946e310135ddc93b98bddb410e7a34b"
   integrity sha512-GnyIkKhhzXZUWFCaJzvyDLEEgDkPfb4/TPvJCJVuS8MWZgoSsErf++QpiAlDnKFcqhRlm+tIOcencCjyJE6ZCA==
-  dependencies:
-    graceful-fs "^4.1.2"
-    jsonfile "^4.0.0"
-    universalify "^0.1.0"
-
-fs-extra@^7.0.1:
-  version "7.0.1"
-  resolved "https://registry.yarnpkg.com/fs-extra/-/fs-extra-7.0.1.tgz#4f189c44aa123b895f722804f55ea23eadc348e9"
-  integrity sha512-YJDaCJZEnBmcbw13fvdAM9AwNOJwOzrE4pqMqBq5nFiEqXUqHwlK4B+3pUw6JNvfSPtX05xFHtYy/1ni01eGCw==
   dependencies:
     graceful-fs "^4.1.2"
     jsonfile "^4.0.0"
@@ -4985,14 +4961,14 @@ verror@1.10.0:
     core-util-is "1.0.2"
     extsprintf "^1.2.0"
 
-wdio-video-reporter@^1.4.1:
-  version "1.4.1"
-  resolved "https://registry.yarnpkg.com/wdio-video-reporter/-/wdio-video-reporter-1.4.1.tgz#03ac55c72b1cbcd17ead5b6fc217a7f00c618926"
-  integrity sha512-+fO6i4fuN2TWBaZtsLpRaxTDUoocX9hzvFNrvHZ6KWh8kD5iV5AV4XX9P012LH2aFWKCXOPLV43c/0qXjqQbsA==
+wdio-video-reporter@^1.4.3:
+  version "1.4.3"
+  resolved "https://registry.yarnpkg.com/wdio-video-reporter/-/wdio-video-reporter-1.4.3.tgz#5962d7fbf20a56cc4005a5a2987cfc910e8dd108"
+  integrity sha512-ZJEMi59XL1ZEZEYED2+fuHQ67jvfVQd1XVczW8yzVKZLC8+71RVLSyvO5CxukT0NGqQic740iv49qCjR7SZhqg==
   dependencies:
     "@ffmpeg-installer/ffmpeg" "^1.0.17"
-    "@wdio/allure-reporter" "^5.7.11"
-    "@wdio/reporter" "^5.7.8"
+    "@wdio/allure-reporter" "^5.9.3"
+    "@wdio/reporter" "^5.9.3"
     fs-extra "^6.0.1"
     mkdirp "^0.5.1"
 
